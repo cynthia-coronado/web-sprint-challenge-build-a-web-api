@@ -28,11 +28,10 @@ async function validateProject (req, res, next){
         res.status(400).json({
             message: 'Description field missing'
         })
-    }else if(!completed){
+    }else if(!req.body.hasOwnProperty('completed')){
         res.status(400).json({
             message: 'Completed field is missing'
         })
-    
     }else{
         req.name = name.trim()
         req.description = description.trim()

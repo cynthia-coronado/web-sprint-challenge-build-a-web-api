@@ -30,6 +30,22 @@ router.delete('/:id', validateProjectId, (req, res, next) => {
    .catch(next)
 })
 
+// router.put('/:id', validateProjectId, validateProject, (req, res, next) => {
+//     const {name, description, completed} = req.body
+//     if(!name || !description, !completed){
+//         res.status(400).json({message: 'Project ID does not exist'})
+//     } else {
+//     Projects.update(req.params.id, req.body)
+//     .then(() => {
+//         return Projects.get(req.params.id)
+//     })
+//     .then(project => {
+//         res.json(project)
+//     })
+//         .catch(next)
+//     }
+// })
+
 router.put('/:id', validateProjectId, validateProject, (req, res, next) => {
     Projects.update(req.params.id, req.body)
     .then(() => {
